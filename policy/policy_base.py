@@ -39,12 +39,3 @@ class PolicyBase(object):
     def load_weight(self, filename, directory="./pytorch_models"):
         self.log[self.args.log_name].info("[{}] Loaded weight".format(self.name))
         self.policy.load(filename, directory)
-
-    def set_eval_mode(self):
-        self.log[self.args.log_name].info("[{}] Set eval mode".format(self.name))
-
-        self.policy.actor.eval()
-        if "worker" not in self.name:
-            self.policy.actor_target.eval()
-            self.policy.critic.eval()
-            self.policy.critic_target.eval()
