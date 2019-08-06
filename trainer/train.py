@@ -4,8 +4,6 @@ import numpy as np
 total_timesteps = 0
 total_eps = 0
 
-session_advices = 0
-
 
 def eval_progress(env, agent, n_eval, log, tb_writer, args):
     global total_eps
