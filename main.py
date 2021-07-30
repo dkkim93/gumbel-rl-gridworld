@@ -19,13 +19,13 @@ def set_policy(env, tb_writer, log, args, name):
 
 def main(args):
     # Create directories
-    if not os.path.exists("./logs"):
-        os.makedirs("./logs")
+    if not os.path.exists("./log"):
+        os.makedirs("./log")
     if not os.path.exists("./pytorch_models"):
         os.makedirs("./pytorch_models")
 
     # Set logs
-    tb_writer = SummaryWriter('./logs/tb_{0}'.format(args.log_name))
+    tb_writer = SummaryWriter('./log/tb_{0}'.format(args.log_name))
     log = set_log(args)
 
     # Create env
@@ -48,10 +48,10 @@ if __name__ == "__main__":
 
     # Algorithm
     parser.add_argument(
-        "--tau", default=0.01, type=float, 
+        "--tau", default=0.01, type=float,
         help="Target network update rate")
     parser.add_argument(
-        "--batch-size", default=50, type=int, 
+        "--batch-size", default=50, type=int,
         help="Batch size for both actor and critic")
     parser.add_argument(
         "--policy-freq", default=2, type=int,
@@ -66,7 +66,7 @@ if __name__ == "__main__":
         "--n-hidden", default=200, type=int,
         help="Number of hidden units")
     parser.add_argument(
-        "--discount", default=0.99, type=float, 
+        "--discount", default=0.99, type=float,
         help="Discount factor")
 
     # Env
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         "--prefix", default="", type=str,
         help="Prefix for tb_writer and logging")
     parser.add_argument(
-        "--seed", default=0, type=int, 
+        "--seed", default=0, type=int,
         help="Sets Gym, PyTorch and Numpy seeds")
 
     args = parser.parse_args()
