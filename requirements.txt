@@ -2,5 +2,5 @@ numpy>=1.14.0
 torch>=0.4.0
 gym[atari]>=0.10.5
 tensorboardX==1.2
-pyyaml==3.12
+pyyaml==5.4
 gitpython==3.0.8
